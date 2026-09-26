@@ -1,0 +1,11 @@
+{
+  "name": "CivicPulse AI",
+  "description": "AI for Digital Public Infrastructure & Governance by AIQubix. A multilingual Digital Public Good aggregating citizen development feedback, predictive weather alerts, and data.gov.in infrastructure planning.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
+

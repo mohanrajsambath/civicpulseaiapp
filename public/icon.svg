@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f294a" />
+      <stop offset="100%" stop-color="#081426" />
+    </linearGradient>
+    <linearGradient id="saffronGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#fb923c" />
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0d9488" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  
+  <!-- Outer Subtle Tech Ring -->
+  <circle cx="256" cy="256" r="192" fill="none" stroke="#1e3a8a" stroke-width="4" stroke-dasharray="8 8" opacity="0.6"/>
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#0d9488" stroke-width="2" opacity="0.3"/>
+
+  <!-- Tricolor Accent Arcs -->
+  <path d="M 120 180 A 160 160 0 0 1 392 180" fill="none" stroke="url(#saffronGrad)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 120 332 A 160 160 0 0 0 392 332" fill="none" stroke="url(#greenGrad)" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Civic Infrastructure Node Central Core -->
+  <circle cx="256" cy="256" r="64" fill="#0f294a" stroke="url(#tealGrad)" stroke-width="6"/>
+
+  <!-- Pulse Waveform through Center (CivicPulse) -->
+  <path d="M 130 256 L 195 256 L 225 190 L 256 315 L 285 220 L 315 256 L 382 256" 
+        fill="none" stroke="#38bdf8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Geo Satellite / Community Nodes -->
+  <circle cx="256" cy="115" r="18" fill="#f97316"/>
+  <circle cx="256" cy="115" r="9" fill="#ffffff"/>
+
+  <circle cx="380" cy="220" r="14" fill="#38bdf8"/>
+  <circle cx="132" cy="220" r="14" fill="#10b981"/>
+
+  <circle cx="350" cy="360" r="16" fill="#0d9488"/>
+  <circle cx="162" cy="360" r="16" fill="#eab308"/>
+</svg>

@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Connection testing doc
+    match /test/connection {
+      allow read: if true;
+    }
+
+    // User profiles: Isolated to own user ID
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Grievances: Public Read for DPI Transparency
+    match /grievances/{grievanceId} {
+      // Any citizen or official can read public grievances
+      allow read: if true;
+
+      // Anyone can create a grievance report (DPI zero-barrier tier)
+      allow create: if request.resource.data.keys().hasAll(['id', 'title', 'category', 'status', 'createdAt'])
+                    && request.resource.data.title is string
+                    && request.resource.data.title.size() <= 200
+                    && request.resource.data.status in ['submitted', 'ai_triaged', 'work_allocated', 'resolved', 'disputed'];
+
+      // Updates: Upvotes, contractor claiming/resolution, or admin review
+      allow update: if true; // Allows upvotes, status transitions, and contractor completions
+      allow delete: if request.auth != null;
+    }
+  }
+}

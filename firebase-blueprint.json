@@ -1,0 +1,173 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Stores user digital public identity, authenticated role (citizen, municipal contractor, policymaker/admin), jurisdiction, and contractor licensing information.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID matching the document ID"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "User email address"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Full name of the user or contractor representative"
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "Avatar photo URL from Google Auth or profile"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["civilian", "provider", "policymaker", "whatsapp"],
+          "description": "System role: civilian (citizen), provider (municipal contractor), policymaker (admin / magistrate), whatsapp (bot)"
+        },
+        "designation": {
+          "type": "string",
+          "description": "Official title or role title"
+        },
+        "department": {
+          "type": "string",
+          "description": "Government department, municipal zone, or contractor firm"
+        },
+        "jurisdiction": {
+          "type": "string",
+          "description": "Ward, Taluk, or District area of authority"
+        },
+        "contractorFirm": {
+          "type": "string",
+          "description": "Registered contracting agency name if role is provider"
+        },
+        "contractorLicenseNo": {
+          "type": "string",
+          "description": "Official municipal contractor license or PWD vendor code"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when profile was created"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when profile was last updated"
+        }
+      },
+      "required": ["uid", "email", "displayName", "role"]
+    },
+    "Grievance": {
+      "title": "Civic Grievance",
+      "description": "Civic grievance or infrastructure defect report lodged by citizen, field worker, or WhatsApp gateway.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique grievance ID"
+        },
+        "title": {
+          "type": "string",
+          "description": "Concise summary of the civic hazard"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the issue"
+        },
+        "originalLanguage": {
+          "type": "string",
+          "description": "Language used when lodging report (e.g., en, ta, hi, kn)"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["water_sanitation", "roads_bridges", "rural_health", "power_electricity", "digital_infra", "flood_drainage"],
+          "description": "Infrastructure sector category"
+        },
+        "sectorCode": {
+          "type": "string",
+          "description": "Sector code e.g. SEC-ROADS"
+        },
+        "state": {
+          "type": "string",
+          "description": "State name"
+        },
+        "district": {
+          "type": "string",
+          "description": "District name"
+        },
+        "talukOrWard": {
+          "type": "string",
+          "description": "Ward or Taluk identifier"
+        },
+        "urgencyScore": {
+          "type": "number",
+          "description": "AI-calculated urgency rating from 1 to 10"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["submitted", "ai_triaged", "work_allocated", "resolved", "disputed"],
+          "description": "Lifecycle state of the grievance"
+        },
+        "upvotesCount": {
+          "type": "number",
+          "description": "Number of community endorsements"
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "Photo URL of the hazard"
+        },
+        "resolutionPhotoUrl": {
+          "type": "string",
+          "description": "Certified completion photo uploaded by authenticated municipal contractor"
+        },
+        "resolutionNotes": {
+          "type": "string",
+          "description": "Contractor work notes and completion report"
+        },
+        "resolvedAt": {
+          "type": "string",
+          "description": "ISO timestamp of resolution"
+        },
+        "resolvedByContractor": {
+          "type": "string",
+          "description": "Contractor name or vendor ID who completed the fix"
+        },
+        "contractorId": {
+          "type": "string",
+          "description": "UID of the authenticated contractor"
+        },
+        "disputeReason": {
+          "type": "string",
+          "description": "Citizen dispute justification if fix is unsatisfactory"
+        },
+        "reportedByUid": {
+          "type": "string",
+          "description": "UID of the citizen reporter (or 'anonymous_citizen' if DPI open tier)"
+        },
+        "reportedByName": {
+          "type": "string",
+          "description": "Name of citizen reporter"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        }
+      },
+      "required": ["id", "title", "description", "category", "district", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles and credentials indexed by Firebase Auth UID"
+    },
+    "/grievances/{grievanceId}": {
+      "schema": "Grievance",
+      "description": "Persistent civic grievances and infrastructure work orders"
+    }
+  }
+}

@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* 
+ * CivicPulse AI Dual Theme Engine
+ * Seamless switching between High-Contrast Daylight Civic Portal (Light)
+ * and High-Tech Disaster Management Cyber Command Room (Dark).
+ */
+
+html.light {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Light Theme Overrides */
+html.light body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Background adaptations */
+html.light .bg-slate-950 {
+  background-color: #f1f5f9 !important;
+}
+html.light .bg-slate-900 {
+  background-color: #ffffff !important;
+}
+html.light .bg-slate-900\/95 {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+}
+html.light .bg-slate-900\/90 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+html.light .bg-slate-900\/80 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+html.light .bg-slate-900\/60 {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+}
+html.light .bg-slate-950\/90 {
+  background-color: #f1f5f9 !important;
+}
+html.light .bg-slate-950\/80 {
+  background-color: #f8fafc !important;
+}
+html.light .bg-slate-950\/70 {
+  background-color: #f1f5f9 !important;
+}
+html.light .bg-slate-950\/60 {
+  background-color: #f1f5f9 !important;
+}
+html.light .bg-slate-800 {
+  background-color: #e2e8f0 !important;
+}
+html.light .bg-slate-800\/80 {
+  background-color: #e2e8f0 !important;
+}
+html.light .bg-slate-800\/50 {
+  background-color: #f1f5f9 !important;
+}
+html.light .bg-slate-700 {
+  background-color: #cbd5e1 !important;
+}
+
+/* Borders in Light Theme */
+html.light .border-slate-800 {
+  border-color: #e2e8f0 !important;
+}
+html.light .border-slate-800\/80 {
+  border-color: #e2e8f0 !important;
+}
+html.light .border-slate-700 {
+  border-color: #cbd5e1 !important;
+}
+html.light .border-slate-700\/50 {
+  border-color: #e2e8f0 !important;
+}
+html.light .border-slate-600 {
+  border-color: #94a3b8 !important;
+}
+
+/* Text adaptations in Light Theme */
+html.light .text-slate-100 {
+  color: #0f172a !important;
+}
+html.light .text-slate-200 {
+  color: #1e293b !important;
+}
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+html.light .text-slate-400 {
+  color: #64748b !important;
+}
+html.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Headings in Light Theme */
+html.light h1:not([class*="bg-gradient"]):not([class*="text-transparent"]):not(.keep-white),
+html.light h2:not([class*="bg-gradient"]):not([class*="text-transparent"]):not(.keep-white),
+html.light h3:not([class*="bg-gradient"]):not([class*="text-transparent"]):not(.keep-white),
+html.light h4:not([class*="bg-gradient"]):not([class*="text-transparent"]):not(.keep-white) {
+  color: #0f172a !important;
+}
+
+/* Buttons with gradients or solid colorful backgrounds keep white text */
+html.light button[class*="from-"],
+html.light button[class*="bg-teal-600"],
+html.light button[class*="bg-blue-600"],
+html.light button[class*="bg-emerald-600"],
+html.light button[class*="bg-rose-600"],
+html.light button[class*="bg-indigo-600"],
+html.light button[class*="bg-teal-500"],
+html.light button[class*="bg-emerald-500"],
+html.light a[class*="from-"],
+html.light .keep-white {
+  color: #ffffff !important;
+}
+
+/* Form inputs in Light Theme */
+html.light input:not([type="checkbox"]):not([type="radio"]),
+html.light select,
+html.light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Hover adjustments */
+html.light .hover\:bg-slate-800:hover {
+  background-color: #e2e8f0 !important;
+}
+html.light .hover\:bg-slate-700:hover {
+  background-color: #cbd5e1 !important;
+}
+html.light .hover\:text-white:hover {
+  color: #0f172a !important;
+}
+
+/* Elevation and shadow enhancements in Light Mode */
+html.light .shadow-2xl,
+html.light .shadow-xl {
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light .bg-slate-950\/80 {
+  background-color: rgba(241, 245, 249, 0.9) !important;
+}
+
+/* Hackathon crest banner styling for light mode */
+html.light .from-blue-950.via-slate-900.to-emerald-950 {
+  background-image: linear-gradient(to right, #1e3a8a, #0f172a, #064e3b) !important;
+}
