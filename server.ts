@@ -265,7 +265,10 @@ Return valid JSON with this exact schema:
 // Setup Vite middlewares for SSR/SPA in development
 async function startServer() {
   const vite = await createViteServer({
-    server: { middlewareMode: true },
+    server: { 
+      middlewareMode: true,
+      allowedHosts: ['civicpulseapp.ai.studio', '.ai.studio', '.run.app', 'localhost'],
+    },
     appType: 'spa',
   });
 
